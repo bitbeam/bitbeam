@@ -81,6 +81,21 @@ module bracket(angle,height,width) {
   }
 }
 
+// STRONG BRACKET // 
+// Two beams combined at at angle
+module bracket_strong(angle,height,width) {
+
+  difference() {
+  hull() {
+    bracket(angle,height,width);
+  }
+    bb_holes(height);
+    rotate([0,0,angle])
+    bb_holes(width);
+  }
+
+}
+
 
 
 
