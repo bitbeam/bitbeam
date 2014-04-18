@@ -22,3 +22,6 @@ ph = bh/2;
 
 // Quality of shapes?
 $fn=25;
+
+// Width of laser cut
+kerf = 0.0;
