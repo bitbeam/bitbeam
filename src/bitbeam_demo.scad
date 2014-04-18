@@ -1,49 +1,51 @@
 // Demo of Biteam parts
 
+//Parts are defined in this file
 include <bitbeam_parts.scad>;
 
-
-// Projection for laser cutting
+// Use ths projection for laser cutting
 //projection(cut=true)
 
-// Guides
-for (i = [0:3]) {
-  translate([i*40,0+80,0])
-  guide((i+2)*3);
-}
-
-// Straight beams
-for (i = [0:3]) {
-  translate([i*40,0,0])
-  beam_straight((i+1)*2);
-}
+//Spacing between parts along the x axis
+sx = 60; 
 
 
-// Brackets
-for (i = [0:3]) {
-  translate([i*40,-50,0])
-  // angle, length, length
-  bracket(i*22.5+90,i+1*2,4);
-}
 
-// Plate
-for (i = [0:3]) {
-  translate([i*40,-120,0])
-  plate_square(i+1*2,i+1*2);
-}
-
-// Plate with two rows of holes 
-for (i = [0:3]) {
-  translate([i*40,-180,0])
-  plate_square(i+1*2,i+1*2,1,1,0,0);
-}
+// GUIDE //
+// An axle can be guided by this type of element
+translate([sx*0,0,0])
+  guide(10);
 
 
-// Frames
-for (i = [0:3]) {
-  translate([i*40,-240,0])
-  frame(i+1*2,i+1*2,0,1,1,0);
-}
+// BEAM //
+translate([sx*1,0,0])
+  beam_straight(10);
+
+
+// BRACKET //
+translate([sx*2,20,0])
+  bracket(135,7,5);
+
+
+// PLATE //
+// Default is holes along all edges
+translate([sx*3,0,0])
+  plate_square(5,10);
+
+
+// PLATE // 
+// Uing the optional parameters to only
+// have holes along two edges
+translate([sx*4,0,0])
+  plate_square(5,10,1,1,0,0);
+
+
+
+// FRAME //
+// A frame with holes along the edges 
+translate([sx*5,0,0])
+  frame(5,10);
+
 
 
 
